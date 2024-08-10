@@ -2,16 +2,19 @@
     font-family: 'Dosis Bold';
     src: url("Dosis-Bold.ttf");
 }
+
 :root {
-    --box-dimension:70px;
+    --box-dimension: 70px;
 }
- body {
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
     font-family: 'Dosis Bold';
 }
+
 .container {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -22,7 +25,7 @@
     border-top-right-radius: 30px;
 
     background-color: rgb(22, 17, 49);
-    
+
 }
 
 .box {
@@ -38,13 +41,22 @@
     height: var(--box-dimension);
     transition: all 0.3s ease;
     cursor: pointer;
+    
+    
+}
+
+.box>img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+
 }
 
 .box:hover {
     transform: translateY(-8px);
 }
 
-.control{
+.control {
     width: 100%;
     background-color: white;
     padding-top: 30px;
@@ -53,33 +65,34 @@
     align-items: center;
     column-gap: 50px;
     border-bottom-left-radius: 30px;
-    border-bottom-right-radius:30px;
+    border-bottom-right-radius: 30px;
 }
 
-.control > :first-child {
+.control> :first-child {
     margin-left: 30px;
 }
 
-.amount-wrap,.risk-wrap {
+.amount-wrap,
+.risk-wrap {
     display: flex;
     flex-direction: column;
 }
 
 button {
-    width:100px;
+    width: 100px;
     padding: 10px;
     border-radius: 9px;
-    border:none;
+    border: none;
     font-family: 'Dosis Bold';
     display: flex;
     justify-content: center;
     align-items: center;
-    width:150px;
+    width: 150px;
 
 
 }
 
-.clear-wrap > button {
+.clear-wrap>button {
     border: 1px solid rgb(182, 184, 182);
     background-color: rgb(109, 119, 109);
     cursor: pointer;
@@ -87,27 +100,28 @@ button {
     font-weight: bold;
 }
 
-.clear-wrap > button:hover {
+.clear-wrap>button:hover {
     background-color: rgb(81, 82, 81);
 }
-.play-wrap > button {
+
+.play-wrap>button {
     border: 1px solid rgb(37, 143, 37);
     background-color: rgb(45, 230, 45);
     cursor: pointer;
 }
 
-.play-wrap > button:hover {
+.play-wrap>button:hover {
     background-color: rgb(44, 218, 44);
 }
 
 /* REMOVE INPUT NUMBER ARROW */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }

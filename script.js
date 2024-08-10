@@ -4,7 +4,7 @@ let cashOutButton = document.querySelector("#cashOut-button");
 let riskSelect = document.querySelector("#risk");
 let betAmount = document.querySelector("#amountInput");
 
-let bombsAmount = 5;
+let bombsAmount = 10;
 let isPlaying = false;
 let tilesAmounts = squareTiles.length;
 riskSelect.addEventListener("change", () => {
@@ -19,10 +19,10 @@ squareTiles.forEach((squareTile) => {
                     isPlaying = false;
                     playButton.disabled = false;
                     console.log("LOSE");
-                    squareTile.textContent = "BOMB";
+                    squareTile.innerHTML = `<img src="bombedit.png" alt="" srcset="">`;
                 } else {
                     console.log("WIN");
-                    squareTile.textContent = "DIAMOND";
+                    squareTile.innerHTML = `<img src="diamondedit.png" alt="">`;
                 }
                 squareTile.classList.add("clicked");
             } else {
