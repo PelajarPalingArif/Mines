@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'Dosis Bold';
+    src: url("Dosis-Bold.ttf");
+}
+:root {
+    --box-dimension:70px;
+}
+ body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    font-family: 'Dosis Bold';
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 15px;
+    row-gap: 19px;
+    padding: 20px 60px 20px 60px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+
+    background-color: rgb(22, 17, 49);
+    
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: grey;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+
+    width: var(--box-dimension);
+    height: var(--box-dimension);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.box:hover {
+    transform: translateY(-8px);
+}
+
+.control{
+    width: 100%;
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius:30px;
+}
+
+.control > :first-child {
+    margin-left: 30px;
+}
+
+.amount-wrap,.risk-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width:100px;
+    padding: 10px;
+    border-radius: 9px;
+    border:none;
+    font-family: 'Dosis Bold';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:150px;
+
+
+}
+
+.clear-wrap > button {
+    border: 1px solid rgb(182, 184, 182);
+    background-color: rgb(109, 119, 109);
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.clear-wrap > button:hover {
+    background-color: rgb(81, 82, 81);
+}
+.play-wrap > button {
+    border: 1px solid rgb(37, 143, 37);
+    background-color: rgb(45, 230, 45);
+    cursor: pointer;
+}
+
+.play-wrap > button:hover {
+    background-color: rgb(44, 218, 44);
+}
+
+/* REMOVE INPUT NUMBER ARROW */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
