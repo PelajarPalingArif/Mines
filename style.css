@@ -56,6 +56,10 @@ body {
     transform: translateY(-8px);
 }
 
+.box:active {
+    transform: translateY(-4px);
+}
+
 .control {
     width: 100%;
     background-color: white;

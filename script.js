@@ -13,13 +13,16 @@ riskSelect.addEventListener("change", () => {
 });
 squareTiles.forEach((squareTile) => {
     squareTile.addEventListener("click", () => {
+        
         if (isPlaying) {
             if (!squareTile.classList.contains("clicked")) {
                 if (Math.random() < bombsAmount / tilesAmounts) {
                     isPlaying = false;
                     playButton.disabled = false;
+                    cashOutButton.disabled = true;
                     console.log("LOSE");
                     squareTile.innerHTML = `<img src="bombedit.png" alt="" srcset="">`;
+
                 } else {
                     console.log("WIN");
                     squareTile.innerHTML = `<img src="diamondedit.png" alt="">`;
