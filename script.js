@@ -25,7 +25,7 @@ squareTiles.forEach((squareTile) => {
                     cashOutButton.disabled = true;
                     // LOSE
                     squareTile.innerHTML = `<img src="bombedit.png" alt="" srcset="">`;
-                    // squareTile.style["outline"] = "3px solid red";
+                    // squareTile.style["outline"] = "3px solid red"; 
                     let remainingSquareTiles = document.querySelectorAll(".box:not(.clicked)");
                     let tempBombAmount = bombsAmount - 1;
                     let tempSquareTiles = remainingSquareTiles.length;
