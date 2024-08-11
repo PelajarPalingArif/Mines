@@ -15,23 +15,42 @@ squareTiles.forEach((squareTile) => {
     squareTile.addEventListener("click", () => {
 
         if (isPlaying) {
+            console.log(`WIN CHANCE : ${Math.round((1 - bombsAmount / tilesAmounts) * 100,2)}, LOSE CHANCE : ${Math.round(100 - (1 - bombsAmount / tilesAmounts) * 100,2)} , TA : ${tilesAmounts}, BA : ${bombsAmount} `  );
             squareTile.style["backgroundColor"] = "rgb(87, 87, 87)";
             if (!squareTile.classList.contains("clicked")) {
+                squareTile.classList.add("clicked");
                 if (Math.random() < bombsAmount / tilesAmounts) {
                     isPlaying = false;
                     playButton.disabled = false;
                     cashOutButton.disabled = true;
-                    console.log("LOSE");
+                    // LOSE
                     squareTile.innerHTML = `<img src="bombedit.png" alt="" srcset="">`;
 
+                    let remainingSquareTiles = document.querySelectorAll(".box:not(.clicked)");
+                    let tempBombAmount = bombsAmount - 1;
+                    let tempSquareTiles = remainingSquareTiles.length;
+                    console.log(`Bomb Left : ${tempBombAmount}, Tiles Left : ${tempSquareTiles}`);
+                    remainingSquareTiles.forEach((ele) => {
+                        ele.style["background-color"] = "rgb(87, 87, 87)";
+                        if(Math.random() < tempBombAmount / Math.max(tempSquareTiles,1)){
+                            ele.innerHTML =`<img src="bombedit.png" alt="">`;
+                            tempBombAmount--;
+                        }
+                        else {
+                            ele.innerHTML =`<img src="diamondedit.png" alt="">`;
+                        }
+
+                        tempSquareTiles--;
+                        
+                    })
                 } else {
-                    console.log("WIN");
+                    // WIN
                     squareTile.innerHTML = `<img src="diamondedit.png" alt="">`;
                 }
-                squareTile.classList.add("clicked");
             } else {
                 console.log("ALREADY CLICKED");
             }
+            tilesAmounts--;
         } else {
             console.log("Press Play Button to Start");
         }
@@ -39,6 +58,7 @@ squareTiles.forEach((squareTile) => {
 });
 
 playButton.addEventListener("click", () => {
+    tilesAmounts = squareTiles.length;
     console.log("Play Button clicked");
     if (betAmount.value < 0 || betAmount.value == "") {
         console.log("Invalid Bet");
