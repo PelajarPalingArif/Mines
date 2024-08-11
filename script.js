@@ -13,8 +13,9 @@ riskSelect.addEventListener("change", () => {
 });
 squareTiles.forEach((squareTile) => {
     squareTile.addEventListener("click", () => {
-        
+
         if (isPlaying) {
+            squareTile.style["backgroundColor"] = "rgb(87, 87, 87)";
             if (!squareTile.classList.contains("clicked")) {
                 if (Math.random() < bombsAmount / tilesAmounts) {
                     isPlaying = false;
@@ -47,6 +48,7 @@ playButton.addEventListener("click", () => {
         squareTiles.forEach((squareTile) => {
             squareTile.classList.remove("clicked");
             squareTile.textContent = "";
+            squareTile.style["backgroundColor"] = "grey";
         });
         isPlaying = true;
     }
@@ -60,5 +62,7 @@ cashOutButton.addEventListener("click", () => {
     squareTiles.forEach((squareTile) => {
         squareTile.classList.remove("clicked");
         squareTile.textContent = "";
+        squareTile.style["backgroundColor"] = "grey";
+
     });
 });

@@ -41,8 +41,8 @@ body {
     height: var(--box-dimension);
     transition: all 0.3s ease;
     cursor: pointer;
-    
-    
+
+
 }
 
 .box>img {
@@ -58,6 +58,37 @@ body {
 
 .box:active {
     transform: translateY(-4px);
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: scale(.2);
+        transform: rotate(10deg);
+    }
+
+    25% {
+        transform: scale(.4);
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: scale(.6);
+        transform: rotate(10deg);
+    }
+
+    75% {
+        transform: scale(.8);
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: scale(1);
+        transform: rotate(0deg);
+    }
+}
+
+.box img {
+    animation: fadeIn .5s ease;
 }
 
 .control {
