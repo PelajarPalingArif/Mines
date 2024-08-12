@@ -90,7 +90,7 @@ playButton.addEventListener("click", () => {
     } else {
         betMoney = betInput.value;
         console.log("AM : " + parseFloat(accountMoney.textContent) + " BM : " + parseFloat(betMoney));    
-        moneyTrack = (parseFloat(accountMoney.textContent) - parseFloat(betMoney)).toFixed(2);
+        moneyTrack = (moneyTrack - parseFloat(betMoney));
         accountMoney.textContent = moneyTrack;
         playButton.disabled = true;
         cashOutButton.disabled = false;
@@ -108,7 +108,7 @@ cashOutButton.addEventListener("click", () => {
     
     moneyTrack = parseFloat(moneyTrack) + (cashOut * betMoney);
     console.log("Money Track 1 : " + moneyTrack);
-    accountMoney.textContent = moneyTrack.toFixed(2);
+    accountMoney.textContent = moneyTrack.toFixed(2).toLocaleString('en');
     isPlaying = false;
     cashOutButton.disabled = true;
     playButton.disabled = false;
